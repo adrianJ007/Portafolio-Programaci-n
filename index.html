@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio Semestral</title>
+    <title>Portafolio Universitario</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --accent-color: #e74c3c;
-            --light-color: #ecf0f1;
-            --dark-color: #34495e;
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #2ecc71;
         }
         
         * {
@@ -21,244 +23,683 @@
         }
         
         body {
-            background-color: #f5f7fa;
+            background-color: #f8f9fa;
             color: #333;
             line-height: 1.6;
         }
         
+        /* Header y Navegación */
         header {
-            background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
+            background: linear-gradient(135deg, var(--primary), var(--dark));
             color: white;
-            padding: 2rem 0;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
         
         .container {
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem 0;
         }
         
-        h1 {
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.9)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 10rem 0 5rem;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        
+        .btn:hover {
+            background: #2980b9;
+        }
+        
+        /* Secciones */
+        section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
             font-size: 2.5rem;
+            color: var(--primary);
             margin-bottom: 0.5rem;
         }
         
-        h2 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--secondary-color);
+        .section-title p {
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
         }
         
-        h3 {
-            color: var(--dark-color);
-            margin: 1.5rem 0 0.5rem;
+        /* Proyectos */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
         }
         
-        .section {
+        .project-card {
             background: white;
             border-radius: 8px;
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
         }
         
-        .section:hover {
-            transform: translateY(-5px);
+        .project-card:hover {
+            transform: translateY(-10px);
         }
         
-        .folder {
-            margin: 1rem 0;
+        .project-header {
+            background: var(--primary);
+            color: white;
             padding: 1rem;
-            background-color: var(--light-color);
-            border-radius: 6px;
-            border-left: 4px solid var(--secondary-color);
         }
         
-        .folder-title {
-            display: flex;
-            align-items: center;
+        .project-header h3 {
+            font-size: 1.2rem;
             margin-bottom: 0.5rem;
-            font-weight: bold;
-            color: var(--primary-color);
         }
         
-        .folder-title::before {
-            content: "📁";
-            margin-right: 0.5rem;
+        .project-body {
+            padding: 1.5rem;
         }
         
         .file-list {
-            list-style-type: none;
-            padding-left: 1.5rem;
+            list-style: none;
         }
         
         .file-item {
-            margin: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+        
+        .file-item:hover {
+            background: var(--light);
+        }
+        
+        .file-item i {
+            margin-right: 0.5rem;
+            color: var(--secondary);
+        }
+        
+        .file-item.completed i {
+            color: var(--success);
+        }
+        
+        .file-link {
+            color: var(--dark);
+            text-decoration: none;
+            flex-grow: 1;
+        }
+        
+        .file-link:hover {
+            color: var(--secondary);
+        }
+        
+        /* Sobre Mí */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .profile-img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .skill {
+            background: var(--light);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        /* Contacto */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .contact-item {
             display: flex;
             align-items: center;
         }
         
-        .file-item::before {
-            content: "📄";
-            margin-right: 0.5rem;
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            margin-right: 1rem;
+            width: 40px;
         }
         
-        .file-item.completed::before {
-            content: "✅";
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
         }
         
-        .file-link {
-            color: var(--secondary-color);
-            text-decoration: none;
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .form-group label {
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
             transition: color 0.3s;
         }
         
-        .file-link:hover {
-            color: var(--accent-color);
-            text-decoration: underline;
+        .social-links a:hover {
+            color: var(--secondary);
         }
         
-        footer {
-            background-color: var(--dark-color);
-            color: white;
+        .copyright {
             text-align: center;
-            padding: 1.5rem 0;
-            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
         
+        /* Responsive */
         @media (max-width: 768px) {
-            .container {
-                width: 95%;
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
             }
             
-            h1 {
-                font-size: 2rem;
+            nav ul {
+                margin-top: 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .about-content, .contact-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Header -->
     <header>
-        <div class="container">
-            <h1>Portafolio Semestral</h1>
-            <p>Proyectos y trabajos del semestre</p>
+        <div class="container nav-container">
+            <div class="logo">Portafolio<span>Estudiante</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#proyectos">Proyectos</a></li>
+                    <li><a href="#sobre-mi">Sobre Mí</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
-    
-    <main class="container">
-        <section class="section">
-            <h2>Examen Semestral</h2>
-            <div class="folder">
-                <div class="folder-title">Semestral</div>
-                <ul class="file-list">
-                    <li class="file-item">Investigacion 2</li>
-                    <li class="file-item">CasoPractico1.pkt</li>
-                    <li class="file-item">ConversorTemperatura.java</li>
-                    <li class="file-item">Investigacion 2.pdf</li>
-                    <li class="file-item">Sv</li>
-                </ul>
-            </div>
-        </section>
-        
-        <section class="section">
-            <h2>Ejercicios y Parciales</h2>
-            
-            <div class="folder">
-                <div class="folder-title">Ejercicio</div>
-                <ul class="file-list">
-                    <li class="file-item">Calculol'lipotenusa.java</li>
-                    <li class="file-item">ConvertirDolares.java</li>
-                    <li class="file-item">Ejercicio 1 .pdf</li>
-                    <li class="file-item">PersonaEspecial.java</li>
-                </ul>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <h1>Portafolio Universitario</h1>
+            <p>Estudiante de Ingeniería en Sistemas - Proyectos académicos, laboratorios y trabajos del semestre</p>
+            <a href="#proyectos" class="btn">Ver Proyectos</a>
+        </div>
+    </section>
+
+    <!-- Proyectos -->
+    <section id="proyectos">
+        <div class="container">
+            <div class="section-title">
+                <h2>Mis Proyectos</h2>
+                <p>Trabajos académicos realizados durante el semestre</p>
             </div>
             
-            <div class="folder">
-                <div class="folder-title">Parcial 1</div>
-                <ul class="file-list">
-                    <li class="file-item">Parcial 1.pdf</li>
-                    <li class="file-item">Problema1.java</li>
-                    <li class="file-item">Problema2.java</li>
-                    <li class="file-item">Problema3.java</li>
-                    <li class="file-item">Problema4.java</li>
-                    <li class="file-item">Segunda parte.pkt</li>
-                </ul>
+            <div class="projects-grid">
+                <!-- Examen Semestral -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Examen Semestral</h3>
+                        <p>Trabajos de evaluación continua</p>
+                    </div>
+                    <div class="project-body">
+                        <ul class="file-list">
+                            <li class="file-item">
+                                <i class="fas fa-folder"></i>
+                                <a href="#" class="file-link">Semestral</a>
+                            </li>
+                            <li class="file-item completed">
+                                <i class="fas fa-file-pdf"></i>
+                                <a href="#" class="file-link">Investigacion 2</a>
+                            </li>
+                            <li class="file-item">
+                                <i class="fas fa-file-code"></i>
+                                <a href="#" class="file-link">CasoPractico1.pkt</a>
+                            </li>
+                            <li class="file-item">
+                                <i class="fas fa-file-code"></i>
+                                <a href="#" class="file-link">ConversorTemperatura.java</a>
+                            </li>
+                            <li class="file-item completed">
+                                <i class="fas fa-file-pdf"></i>
+                                <a href="#" class="file-link">Investigacion 2.pdf</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Ejercicios y Parciales -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Ejercicios y Parciales</h3>
+                        <p>Prácticas y evaluaciones parciales</p>
+                    </div>
+                    <div class="project-body">
+                        <ul class="file-list">
+                            <li class="file-item">
+                                <i class="fas fa-folder"></i>
+                                <a href="#" class="file-link">Ejercicio</a>
+                            </li>
+                            <li class="file-item">
+                                <i class="fas fa-file-code"></i>
+                                <a href="#" class="file-link">Calculol'lipotenusa.java</a>
+                            </li>
+                            <li class="file-item">
+                                <i class="fas fa-file-code"></i>
+                                <a href="#" class="file-link">ConvertirDolares.java</a>
+                            </li>
+                            <li class="file-item">
+                                <i class="fas fa-file-pdf"></i>
+                                <a href="#" class="file-link">Ejercicio 1.pdf</a>
+                            </li>
+                            <li class="file-item">
+                                <i class="fas fa-file-code"></i>
+                                <a href="#" class="file-link">PersonaEspecial.java</a>
+                            </li>
+                            <li class="file-item">
+                                <i class="fas fa-folder"></i>
+                                <a href="#" class="file-link">Parcial 1</a>
+                            </li>
+                            <li class="file-item">
+                                <i class="fas fa-folder"></i>
+                                <a href="#" class="file-link">Parcial 2</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Laboratorios -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Laboratorios</h3>
+                        <p>Prácticas de laboratorio</p>
+                    </div>
+                    <div class="project-body">
+                        <ul class="file-list">
+                            <li class="file-item">
+                                <i class="fas fa-folder"></i>
+                                <a href="#" class="file-link">Laboratorio1</a>
+                            </li>
+                            <li class="file-item completed">
+                                <i class="fas fa-file-code"></i>
+                                <a href="#" class="file-link">Factura.class</a>
+                            </li>
+                            <li class="file-item">
+                                <i class="fas fa-file-code"></i>
+                                <a href="#" class="file-link">Factura.java</a>
+                            </li>
+                            <li class="file-item completed">
+                                <i class="fas fa-file-code"></i>
+                                <a href="#" class="file-link">PaginaDePresentacion.class</a>
+                            </li>
+                            <li class="file-item">
+                                <i class="fas fa-file-code"></i>
+                                <a href="#" class="file-link">PaginaDePresentacion.java</a>
+                            </li>
+                            <li class="file-item">
+                                <i class="fas fa-folder"></i>
+                                <a href="#" class="file-link">Laboratorio2</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Talleres -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Talleres</h3>
+                        <p>Sesiones prácticas</p>
+                    </div>
+                    <div class="project-body">
+                        <ul class="file-list">
+                            <li class="file-item">
+                                <i class="fas fa-folder"></i>
+                                <a href="#" class="file-link">Taller 1</a>
+                            </li>
+                            <li class="file-item">
+                                <i class="fas fa-file-code"></i>
+                                <a href="#" class="file-link">Form1.java</a>
+                            </li>
+                            <li class="file-item">
+                                <i class="fas fa-file-pdf"></i>
+                                <a href="#" class="file-link">taller practice 1.pdf</a>
+                            </li>
+                            <li class="file-item">
+                                <i class="fas fa-folder"></i>
+                                <a href="#" class="file-link">Taller 3</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Investigaciones -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Investigaciones</h3>
+                        <p>Trabajos de investigación</p>
+                    </div>
+                    <div class="project-body">
+                        <ul class="file-list">
+                            <li class="file-item">
+                                <i class="fas fa-folder"></i>
+                                <a href="#" class="file-link">Investigacion1</a>
+                            </li>
+                            <li class="file-item">
+                                <i class="fas fa-file-pdf"></i>
+                                <a href="#" class="file-link">Investigacion 1.pdf</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Mí -->
+    <section id="sobre-mi" style="background-color: var(--light);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Sobre Mí</h2>
+                <p>Conoce más sobre mi formación y habilidades</p>
             </div>
             
-            <div class="folder">
-                <div class="folder-title">Parcial 2</div>
-                <ul class="file-list">
-                    <li class="file-item">NIBARRA.java</li>
-                    <li class="file-item">par 2.pkt</li>
-                </ul>
+            <div class="about-content">
+                <div>
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Foto de perfil" class="profile-img">
+                </div>
+                <div class="about-text">
+                    <h3>Estudiante de Ingeniería en Sistemas</h3>
+                    <p>Soy un estudiante universitario apasionado por la tecnología y el desarrollo de software. Actualmente curso la carrera de Ingeniería en Sistemas, donde he desarrollado habilidades en programación, redes y desarrollo web.</p>
+                    <p>En este portafolio muestro los proyectos y trabajos realizados durante el semestre, incluyendo ejercicios de programación, laboratorios, investigaciones y evaluaciones.</p>
+                    
+                    <h4>Habilidades Técnicas</h4>
+                    <div class="skills">
+                        <span class="skill">Java</span>
+                        <span class="skill">HTML/CSS</span>
+                        <span class="skill">JavaScript</span>
+                        <span class="skill">Packet Tracer</span>
+                        <span class="skill">Git/GitHub</span>
+                        <span class="skill">SQL</span>
+                    </div>
+                </div>
             </div>
-        </section>
-        
-        <section class="section">
-            <h2>Laboratorios</h2>
-            
-            <div class="folder">
-                <div class="folder-title">Laboratorio1</div>
-                <ul class="file-list">
-                    <li class="file-item completed">Factura.class</li>
-                    <li class="file-item">Factura.java</li>
-                    <li class="file-item completed">PaginaDePresentacion.class</li>
-                    <li class="file-item">PaginaDePresentacion.java</li>
-                </ul>
-            </div>
-            
-            <div class="folder">
-                <div class="folder-title">Laboratorio2</div>
-                <ul class="file-list">
-                    <li class="file-item completed">CalculoDeVenta.java</li>
-                    <li class="file-item">CostoAuto.java</li>
-                    <li class="file-item">Laboratorio 2.pdf</li>
-                    <li class="file-item">LectorDelIora.java</li>
-                    <li class="file-item">SueldoTrabajador.java</li>
-                </ul>
-            </div>
-        </section>
-        
-        <section class="section">
-            <h2>Talleres</h2>
-            
-            <div class="folder">
-                <div class="folder-title">Taller 1</div>
-                <ul class="file-list">
-                    <li class="file-item">Form1.java</li>
-                    <li class="file-item">taller practice 1.pdf</li>
-                </ul>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contacto</h2>
+                <p>¿Interesado en colaborar? ¡Contáctame!</p>
             </div>
             
-            <div class="folder">
-                <div class="folder-title">Taller 3</div>
-                <ul class="file-list">
-                    <li class="file-item">tll</li>
-                </ul>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>estudiante@universidad.edu</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Teléfono</h4>
+                            <p>+1 234 567 890</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Ubicación</h4>
+                            <p>Ciudad Universitaria</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Nombre</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Asunto</label>
+                        <input type="text" id="subject" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensaje</label>
+                        <textarea id="message" class="form-control" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Enviar Mensaje</button>
+                </form>
             </div>
-        </section>
-        
-        <section class="section">
-            <h2>Investigaciones</h2>
-            
-            <div class="folder">
-                <div class="folder-title">Investigacion1</div>
-                <ul class="file-list">
-                    <li class="file-item">Investigacion 1.pdf</li>
-                </ul>
-            </div>
-        </section>
-    </main>
-    
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
         <div class="container">
-            <p>Portafolio Semestral - Todos los derechos reservados &copy; 2025</p>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Portafolio Universitario</h3>
+                    <p>Proyectos y trabajos académicos de un estudiante de Ingeniería en Sistemas.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#proyectos">Proyectos</a></li>
+                        <li><a href="#sobre-mi">Sobre Mí</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Sígueme</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Portafolio Universitario. Todos los derechos reservados.</p>
+            </div>
         </div>
     </footer>
+
+    <script>
+        // Smooth scrolling para los enlaces de navegación
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Form submission
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('¡Gracias por tu mensaje! Te responderé pronto.');
+            this.reset();
+        });
+    </script>
 </body>
 </html>
