@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio de Ciberseguridad - Adrian</title>
+
+    <script src="https://kit.fontawesome.com/TU_KIT_DE_FONT_AWESOME.js" crossorigin="anonymous"></script>
+
+    <style>
+        
+        :root {
+            --primary-color: #2c3e50;    
+            --secondary-color: #1f2c38;  
+            --text-color: #f4f4f4;       
+            --light-bg: #F0F0F0;         
+            --acento-color: #3498db;     
+            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-family); 
+            line-height: 1.6;
+            color: var(--text-color);
+            background: var(--primary-color);
+            min-height: 100vh;
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+            margin-bottom: 0.5em;
+            color: var(--text-color);
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--acento-color);
+            transition: color 0.3s;
+        }
+
+        .section-padding {
+            padding: 80px 10%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .background-dark {
+            background-color: var(--secondary-color);
+        }
+
+        .acento {
+            color: var(--acento-color);
+        }
+      
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(44, 62, 80, 0.95); 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 10%;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: var(--acento-color);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            font-size: 1em;
+            padding: 5px 0;
+        }
+
+        .nav-links a:hover {
+            color: var(--acento-color);
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding-top: 60px;
+        }
+
+        .profile-pic {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 4px solid var(--acento-color);
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            color: var(--text-color);
+            margin-bottom: 30px;
+            opacity: 0.8;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: 700;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+        }
+
+        .primary-btn {
+            background-color: var(--acento-color);
+            color: var(--secondary-color);
+            border: 2px solid var(--acento-color);
+        }
+
+        .primary-btn:hover {
+            background-color: transparent;
+            color: var(--acento-color);
+        }
+
+   
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 1000px;
+            margin-top: 40px;
+            text-align: left;
+        }
+
+        .skills-list ul {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .skills-list li {
+            padding: 8px 0;
+            font-size: 1.1em;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .project-card {
+            background-color: var(--primary-color);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            text-align: left;
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background-color: #111; 
+        }
+
+        .project-card h3 {
+            color: var(--acento-color);
+            padding: 15px 15px 0;
+        }
+
+        .project-card p {
+            color: var(--text-color);
+            opacity: 0.8;
+            padding: 0 15px 15px;
+            font-size: 0.95em;
+        }
+
+        .project-links {
+            padding: 0 15px 15px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .link-btn {
+            padding: 8px 15px;
+            font-size: 0.9em;
+            background-color: transparent;
+            border: 1px solid var(--text-color);
+            color: var(--text-color);
+        }
+
+        .acento-border {
+            border-color: var(--acento-color);
+            color: var(--acento-color);
+        }
+
+        .link-btn:hover {
+            background-color: var(--acento-color);
+            color: var(--secondary-color);
+            border-color: var(--acento-color);
+        }
+
+        
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 30px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .contact-btn {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            padding: 15px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1em;
+            transition: background-color 0.3s;
+        }
+
+        .contact-btn i {
+            margin-right: 10px;
+            color: var(--acento-color);
+        }
+
+        .contact-btn:hover {
+            background-color: #333;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            opacity: 0.7;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 10px 5%;
+            }
+
+            .nav-links {
+                display: none; 
+            }
+
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+    </style>
+
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="#inicio" class="logo">A<i class="fas fa-lock acento" style="font-size: 0.8em; margin-left: 5px;"></i></a>
+        <ul class="nav-links">
+            <li><a href="#sobre-mi">Sobre Mí</a></li>
+            <li><a href="#proyectos">Proyectos</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <img src="img/tu-foto.jpg" alt="Tu Foto Profesional" class="profile-pic">
+            <h1>Hola, soy **Adrian**</h1>
+            <p class="subtitle">Lic. Ciberseguridad | Análisis de Riesgos & Hardening de Sistemas</p>
+            <a href="#proyectos" class="btn primary-btn">Ver Proyectos de Seguridad</a>
+        </div>
+    </section>
+
+    <section id="sobre-mi" class="section-padding">
+        <h2>Acerca de Mí</h2>
+        <div class="about-grid">
+            <p>Soy un aspirante a Licenciado en Ciberseguridad con una profunda pasión por la defensa de la infraestructura digital y el análisis proactivo de riesgos. Mi enfoque principal es entender las vulnerabilidades de los sistemas y desarrollar estrategias de protección sólidas, asegurando la integridad, confidencialidad y disponibilidad de los datos. Mi objetivo es transformar la teoría de la seguridad en soluciones prácticas y efectivas, aplicando los principios de *hacking ético* y análisis forense.</p>
+            <div class="skills-list">
+                <h3>Habilidades Clave</h3>
+                <ul>
+                    <li><i class="fas fa-lock acento"></i> Análisis de Vulnerabilidades & Pentesting</li>
+                    <li><i class="fas fa-terminal acento"></i> Hardening de Sistemas Operativos (Linux/Windows)</li>
+                    <li><i class="fas fa-network-wired acento"></i> Seguridad de Redes & Monitoreo (Wireshark)</li>
+                    <li><i class="fas fa-database acento"></i> SQL Injection Prevention & Data Security</li>
+                    <li><i class="fas fa-code acento"></i> Lenguajes: Python (Scripts de Seguridad) & Bash</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="proyectos" class="section-padding background-dark">
+        <h2>Proyectos Destacados (Parciales)</h2>
+        <div class="projects-grid">
+            
+            <article class="project-card">
+                <img src="img/forense-min.jpg" alt="Imagen del Análisis Forense">
+                <h3>Análisis Forense Digital Básico</h3>
+                <p>Caso práctico enfocado en la recuperación de datos y el análisis de logs de eventos. Se utilizaron herramientas específicas para **preservar la cadena de custodia** digital.</p>
+                <div class="project-links">
+                    <a href="Trabajos%20del%20semestre/Parcial%201/informe.pdf" target="_blank" class="btn link-btn acento-border">Ver Informe</a>
+                    <a href="URL_A_TU_CODIGO_GIT_1" target="_blank" class="btn link-btn"><i class="fas fa-file-code"></i> Scripts</a>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <img src="img/hardening-min.jpg" alt="Imagen del Hardening">
+                <h3>Implementación de Hardening en Servidor Web</h3>
+                <p>Proceso detallado para la protección de un servidor web, cubriendo la configuración de *firewalls*, gestión de usuarios y minimización de servicios expuestos para mitigar ataques.</p>
+                <div class="project-links">
+                    <a href="Trabajos%20del%20semestre/Parcial%202/documentacion.pdf" target="_blank" class="btn link-btn acento-border">Ver Documentación</a>
+                    <a href="URL_A_TU_CODIGO_GIT_2" target="_blank" class="btn link-btn"><i class="fas fa-file-code"></i> Scripts</a>
+                </div>
+            </article>
+            
+            </div>
+    </section>
+
+    <section id="contacto" class="section-padding">
+        <h2>Hablemos</h2>
+        <p>¿Tienes alguna consulta de seguridad o proyecto en mente? ¡Contáctame!</p>
+        
+        <div class="contact-links">
+            <a href="mailto:tu-email@ejemplo.com" class="contact-btn">
+                <i class="fas fa-envelope"></i> tu-email@ejemplo.com
+            </a>
+            <a href="https://linkedin.com/in/tuperfil" target="_blank" class="contact-btn">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="https://github.com/adrianj007" target="_blank" class="contact-btn">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Adrian | Portafolio de Ciberseguridad.</p>
+    </footer>
+
+</body>
+</html>
