@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio Universitario</title>
+    <title>Portafolio Universitario - Adrián Jiménez</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -28,7 +28,6 @@
             line-height: 1.6;
         }
         
-        /* Header y Navegación */
         header {
             background: linear-gradient(135deg, var(--primary), var(--dark));
             color: white;
@@ -81,9 +80,8 @@
             color: var(--secondary);
         }
         
-        /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.9)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.9)), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
             color: white;
@@ -117,7 +115,6 @@
             background: #2980b9;
         }
         
-        /* Secciones */
         section {
             padding: 5rem 0;
         }
@@ -139,7 +136,6 @@
             margin: 0 auto;
         }
         
-        /* Proyectos */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -209,7 +205,6 @@
             color: var(--secondary);
         }
         
-        /* Sobre Mí */
         .about-content {
             display: grid;
             grid-template-columns: 1fr 2fr;
@@ -217,10 +212,14 @@
             align-items: center;
         }
         
-        .profile-img {
-            width: 100%;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        .profile-container {
+            text-align: center;
+        }
+        
+        .profile-icon {
+            font-size: 8rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
         }
         
         .about-text h3 {
@@ -247,7 +246,6 @@
             font-size: 0.9rem;
         }
         
-        /* Contacto */
         .contact-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -300,7 +298,6 @@
             resize: vertical;
         }
         
-        /* Footer */
         footer {
             background: var(--dark);
             color: white;
@@ -341,7 +338,6 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
         
-        /* Responsive */
         @media (max-width: 768px) {
             .nav-container {
                 flex-direction: column;
@@ -367,10 +363,9 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <div class="container nav-container">
-            <div class="logo">Portafolio Semestral<span>Adrian Jimenez</span></div>
+            <div class="logo">Adrián<span>Jiménez</span></div>
             <nav>
                 <ul>
                     <li><a href="#inicio">Inicio</a></li>
@@ -382,16 +377,14 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero" id="inicio">
         <div class="container">
             <h1>Portafolio Universitario</h1>
-            <p>Estudiante de Ingeniería en Sistemas - Proyectos académicos, laboratorios y trabajos del semestre</p>
+            <p>Estudiante de Licenciatura en Ciberseguridad - Primer Año - Universidad Tecnológica de Panamá</p>
             <a href="#proyectos" class="btn">Ver Proyectos</a>
         </div>
     </section>
 
-    <!-- Proyectos -->
     <section id="proyectos">
         <div class="container">
             <div class="section-title">
@@ -400,7 +393,6 @@
             </div>
             
             <div class="projects-grid">
-                <!-- Examen Semestral -->
                 <div class="project-card">
                     <div class="project-header">
                         <h3>Examen Semestral</h3>
@@ -432,7 +424,6 @@
                     </div>
                 </div>
                 
-                <!-- Ejercicios y Parciales -->
                 <div class="project-card">
                     <div class="project-header">
                         <h3>Ejercicios y Parciales</h3>
@@ -472,7 +463,6 @@
                     </div>
                 </div>
                 
-                <!-- Laboratorios -->
                 <div class="project-card">
                     <div class="project-header">
                         <h3>Laboratorios</h3>
@@ -508,7 +498,6 @@
                     </div>
                 </div>
                 
-                <!-- Talleres -->
                 <div class="project-card">
                     <div class="project-header">
                         <h3>Talleres</h3>
@@ -536,7 +525,6 @@
                     </div>
                 </div>
                 
-                <!-- Investigaciones -->
                 <div class="project-card">
                     <div class="project-header">
                         <h3>Investigaciones</h3>
@@ -559,7 +547,6 @@
         </div>
     </section>
 
-    <!-- Sobre Mí -->
     <section id="sobre-mi" style="background-color: var(--light);">
         <div class="container">
             <div class="section-title">
@@ -568,29 +555,38 @@
             </div>
             
             <div class="about-content">
-                <div>
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Foto de perfil" class="profile-img">
+                <div class="profile-container">
+                    <div class="profile-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3>Adrián Jiménez Aguirre</h3>
+                    <p>Estudiante de Ciberseguridad</p>
                 </div>
                 <div class="about-text">
-                    <h3>Estudiante de Ingeniería en Sistemas</h3>
-                    <p>Soy un estudiante universitario apasionado por la tecnología y el desarrollo de software. Actualmente curso la carrera de Ingeniería en Sistemas, donde he desarrollado habilidades en programación, redes y desarrollo web.</p>
-                    <p>En este portafolio muestro los proyectos y trabajos realizados durante el semestre, incluyendo ejercicios de programación, laboratorios, investigaciones y evaluaciones.</p>
+                    <h3>Estudiante de Licenciatura en Ciberseguridad</h3>
+                    <p>Soy estudiante de primer año de la Licenciatura en Ciberseguridad en la Universidad Tecnológica de Panamá, Facultad de Ingeniería en Sistemas. Me apasiona la tecnología y la seguridad informática.</p>
+                    <p>Actualmente estoy desarrollando mis habilidades en programación, redes y seguridad, con el objetivo de convertirme en un profesional especializado en proteger sistemas y datos.</p>
+                    
+                    <h4>Formación Académica</h4>
+                    <p><strong>Universidad Tecnológica de Panamá</strong><br>
+                    Licenciatura en Ciberseguridad<br>
+                    Primer Año - Facultad de Ingeniería en Sistemas</p>
                     
                     <h4>Habilidades Técnicas</h4>
                     <div class="skills">
                         <span class="skill">Java</span>
-                        <span class="skill">HTML/CSS</span>
-                        <span class="skill">JavaScript</span>
-                        <span class="skill">Packet Tracer</span>
-                        <span class="skill">Git/GitHub</span>
-                        <span class="skill">SQL</span>
+                        <span class="skill">MySQL</span>
+                        <span class="skill">Cisco Packet Tracer</span>
+                        <span class="skill">Windows Server</span>
+                        <span class="skill">Ubuntu</span>
+                        <span class="skill">Redes</span>
+                        <span class="skill">Seguridad Informática</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contacto -->
     <section id="contacto">
         <div class="container">
             <div class="section-title">
@@ -611,14 +607,21 @@
                         <i class="fas fa-phone"></i>
                         <div>
                             <h4>Teléfono</h4>
-                            <p>*+507 6814-0087</p>
+                            <p>+507 6813-0087</p>
                         </div>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-map-marker-alt"></i>
                         <div>
                             <h4>Ubicación</h4>
-                            <p>Ciudad Universitaria</p>
+                            <p>Universidad Tecnológica de Panamá<br>Facultad de Ingeniería en Sistemas</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-graduation-cap"></i>
+                        <div>
+                            <h4>Formación</h4>
+                            <p>Licenciatura en Ciberseguridad<br>Primer Año</p>
                         </div>
                     </div>
                 </div>
@@ -646,13 +649,12 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Portafolio Universitario</h3>
-                    <p>Proyectos y trabajos académicos de un estudiante de Ingeniería en Sistemas.</p>
+                    <h3>Adrián Jiménez Aguirre</h3>
+                    <p>Estudiante de Licenciatura en Ciberseguridad en la Universidad Tecnológica de Panamá.</p>
                 </div>
                 <div class="footer-section">
                     <h3>Enlaces Rápidos</h3>
@@ -664,23 +666,22 @@
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h3>Sígueme</h3>
+                    <h3>Contacto</h3>
+                    <p>📧 adrianjz349@gmail.com</p>
+                    <p>📱 +507 6813-0087</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-github"></i></a>
                         <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 Portafolio Universitario. Todos los derechos reservados.</p>
+                <p>&copy; 2025 Adrián Jiménez Aguirre - Portafolio Universitario. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Smooth scrolling para los enlaces de navegación
         document.querySelectorAll('nav a').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -694,7 +695,6 @@
             });
         });
         
-        // Form submission
         document.querySelector('.contact-form').addEventListener('submit', function(e) {
             e.preventDefault();
             alert('¡Gracias por tu mensaje! Te responderé pronto.');
